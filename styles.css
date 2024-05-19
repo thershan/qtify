@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -48,25 +50,15 @@ body {
     cursor: pointer;
 }
 
-.navbar-button {
-    background-color: black; /* Test Case 4 */
-    color: green; /* Test Case 5 */
-    border-radius: 4px; /* Test Case 6 */
-    font-family: 'Poppins', sans-serif; /* Test Case 8 */
-    cursor: pointer; /* Test Case 7 */
-    padding: 10px 20px; /* optional, for better appearance */
-    border: none; /* optional, for better appearance */
-}
-
-.navbar-button:hover {
-    cursor: pointer; /* Test Case 7 */
-}
-
 .navbar-feedback .feedback-button {
-    padding: 5px 10px;
+    background-color: black;
+    color: green;
     border: none;
     border-radius: 4px;
-    background-color: #333;
-    color: white;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-feedback .feedback-button:hover {
     cursor: pointer;
 }
