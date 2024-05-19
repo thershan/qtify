@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
+:root {
+    --background-color: black;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -61,4 +65,43 @@ body {
 
 .navbar-feedback .feedback-button:hover {
     cursor: pointer;
+}
+
+.hero {
+    width: 100%;
+    background-color: var(--background-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero-text h1 {
+    margin: 0;
+    font-size: 2em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-text p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
 }
