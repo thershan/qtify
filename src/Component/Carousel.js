@@ -1,10 +1,9 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
 import './Carousel.css';
-import { LeftButton, RightButton } from './NavigationButtons';
 
 function Carousel({ items }) {
   return (
@@ -21,13 +20,9 @@ function Carousel({ items }) {
         }}
       >
         {items.map((item, index) => (
-          <SwiperSlide key={index}>
-            {item}
-          </SwiperSlide>
+          <SwiperSlide key={index}>{item}</SwiperSlide>
         ))}
       </Swiper>
-      <LeftButton />
-      <RightButton />
     </div>
   );
 }
