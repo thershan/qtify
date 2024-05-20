@@ -1,17 +1,51 @@
-/* Section CSS */
 .section {
-  padding: 20px;
-  background-color: #000; /* Matches the hero section background */
-  color: #fff;
+  margin: 20px;
 }
 
-.album-cards {
+.section-header {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 0 10px;
+  color: #fff; /* White text */
 }
 
-.section h2 {
+.section-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.section-header button {
+  padding: 8px 16px;
+  background-color: #ff4081; /* Customize button color */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.section-header button:hover {
+  background-color: #e0356a; /* Darker shade on hover */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.card, .album-card {
+  padding: 20px;
+  background-color: #ffffff; /* White background for the cards */
+  border-radius: 8px;
   text-align: center;
-  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover, .album-card:hover {
+  transform: scale(1.05);
 }

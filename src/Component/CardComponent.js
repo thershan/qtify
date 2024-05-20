@@ -1,25 +1,16 @@
 import React from 'react';
-import Card from '@mui/material/Card';
-import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import Chip from '@mui/material/Chip';
+import { Chip } from '@mui/material';
+import './CardComponent.css';
 
 function CardComponent({ album }) {
   return (
-    <Card style={{ display: 'flex', flexDirection: 'column', width: '200px', margin: '10px' }}>
-      <CardMedia
-        component="img"
-        alt={album.title}
-        height="140"
-        image={album.image}
-        title={album.title}
-      />
-      <CardContent>
-        <Typography variant="h6">{album.title}</Typography>
-        <Chip label={`${album.follows} follows`} />
-      </CardContent>
-    </Card>
+    <div className="card">
+      <img src={album.image} alt={album.title} className="card-image" />
+      <div className="card-content">
+        <Chip label={`${album.follows} follows`} className="card-chip" />
+        <h3 className="card-title">{album.title}</h3>
+      </div>
+    </div>
   );
 }
 

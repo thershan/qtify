@@ -1,32 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardComponent from './CardComponent';
-import { Grid, Typography, Button } from '@mui/material';
+import Carousel from './Carousel'; // Import the Carousel component
+import './Section.css';
 
-function Section() {
+function Section({ title, apiEndpoint }) {
   const [albums, setAlbums] = useState([]);
+  const [showCarousel, setShowCarousel] = useState(false);
 
   useEffect(() => {
-    axios.get('https://qtify-backend-labs.crio.do/albums/top')
+    axios.get(apiEndpoint)
       .then(response => {
         setAlbums(response.data);
       })
       .catch(error => {
         console.error('Error fetching albums:', error);
       });
-  }, []);
+  }, [apiEndpoint]);
 
   return (
-    <div style={{ padding: '20px' }}>
-      <Typography variant="h4" style={{ marginBottom: '20px' }}>Top Albums</Typography>
-      <Grid container spacing={2}>
-        {albums.map(album => (
-          <Grid item key={album.id}>
-            <CardComponent album={album} />
-          </Grid>
-        ))}
-      </Grid>
-      <Button variant="contained" style={{ marginTop: '20px' }}>Collapse</Button>
+    <div className="section">
+      <div className="section-header">
+        <h2>{title}</h2>
+        <button onClick={() => setShowCarousel(!showCarousel)}>
+          {showCarousel ? 'Show All' : 'Collapse'}
+        </button>
+      </div>
+      {showCarousel ? (
+        <Carousel items={albums.map(album => <CardComponent key={album.id} album={album} />)} />
+      ) : (
+        <div className="grid">
+          {albums.map(album => (
+            <CardComponent key={album.id} album={album} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

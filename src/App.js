@@ -9,7 +9,8 @@ function App() {
     <div className="App">
       <Navbar />
       <HeroSection />
-      <Section />
+      <Section title="Top Albums" apiEndpoint="https://qtify-backend-labs.crio.do/albums/top" />
+      <Section title="New Albums" apiEndpoint="https://qtify-backend-labs.crio.do/albums/new" />
     </div>
   );
 }

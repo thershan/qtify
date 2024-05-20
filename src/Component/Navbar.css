@@ -1,71 +1,50 @@
-/* Navbar CSS */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #3fb755;
-  width: 95%;
-  height: 75px;
-  padding: 0 32px;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
+  background-color: #00c853; /* Green background */
+  padding: 10px 20px;
 }
 
 .navbar-logo img {
-  height: 30px;
-  margin-right: 10px;
-}
-
-.navbar-logo span {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
+  height: 40px; /* Adjust size as needed */
 }
 
 .navbar-search {
   display: flex;
   align-items: center;
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
-  height: 40px;
+  flex-grow: 1;
+  margin: 0 20px;
 }
 
-.navbar-search input {
-  padding: 10px;
-  border: none;
+.navbar-search input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-family: 'Poppins', sans-serif; /* Ensure 'Poppins' font */
   outline: none;
-  width: 300px;
-  font-size: 16px;
 }
 
-.searchButton {
-  background-color: white;
+.navbar-search .searchButton {
+  padding: 8px;
+  background-color: black; /* Black background */
   border: none;
-  cursor: pointer;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 0 4px 4px 0;
+  color: green; /* Green text color */
+  cursor: pointer; /* Pointer cursor on hover */
 }
 
 .navbar-feedback .feedback-button {
-  background-color: black;
-  color: green;
+  padding: 8px 16px;
+  background-color: black; /* Black background */
+  color: rgb(8, 237, 8); /* Green text color */
   border: none;
   border-radius: 4px;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 48px;
-  padding: 0 20px;
+  cursor: pointer; /* Pointer cursor on hover */
+  font-family: 'Poppins', sans-serif; /* Ensure 'Poppins' font */
 }
 
 .navbar-feedback .feedback-button:hover {
-  cursor: pointer;
+  background-color: #333; /* Slightly lighter black on hover */
 }
