@@ -1,6 +1,6 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import './Carousel.css';
@@ -13,10 +13,7 @@ function Carousel({ items }) {
         modules={[Navigation]}
         spaceBetween={30}
         slidesPerView={1}
-        navigation={{
-          nextEl: '.right-button',
-          prevEl: '.left-button',
-        }}
+        navigation
         breakpoints={{
           640: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
@@ -28,9 +25,9 @@ function Carousel({ items }) {
             {item}
           </SwiperSlide>
         ))}
-        <LeftButton />
-        <RightButton />
       </Swiper>
+      <LeftButton />
+      <RightButton />
     </div>
   );
 }
