@@ -1,0 +1,17 @@
+/* Section CSS */
+.section {
+  padding: 20px;
+  background-color: #000; /* Matches the hero section background */
+  color: #fff;
+}
+
+.album-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
