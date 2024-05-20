@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardComponent from './CardComponent';
-import Carousel from './Carousel'; // Import the Carousel component
+import Carousel from './Carousel';
 import './Section.css';
 
 function Section({ title, apiEndpoint }) {
