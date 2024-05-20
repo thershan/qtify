@@ -21,18 +21,22 @@
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
+  border-right: none; /* No border on the right */
+  border-radius: 4px 0 0 4px; /* Rounded corners on the left */
   font-family: 'Poppins', sans-serif; /* Ensure 'Poppins' font */
   outline: none;
 }
 
 .navbar-search .searchButton {
   padding: 8px;
-  background-color: black; /* Black background */
-  border: none;
-  border-radius: 0 4px 4px 0;
-  color: green; /* Green text color */
+  background-color: white; /* White background */
+  border: 1px solid #ccc; /* Same border color as input */
+  border-left: none; /* No border on the left */
+  border-radius: 0 4px 4px 0; /* Rounded corners on the right */
   cursor: pointer; /* Pointer cursor on hover */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-feedback .feedback-button {
