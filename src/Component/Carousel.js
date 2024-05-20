@@ -1,9 +1,10 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
 import './Carousel.css';
+import { LeftButton, RightButton } from './NavigationButtons';
 
 function Carousel({ items }) {
   return (
@@ -12,7 +13,10 @@ function Carousel({ items }) {
         modules={[Navigation]}
         spaceBetween={30}
         slidesPerView={1}
-        navigation
+        navigation={{
+          nextEl: '.right-button',
+          prevEl: '.left-button',
+        }}
         breakpoints={{
           640: { slidesPerView: 2 },
           768: { slidesPerView: 3 },
@@ -20,8 +24,12 @@ function Carousel({ items }) {
         }}
       >
         {items.map((item, index) => (
-          <SwiperSlide key={index}>{item}</SwiperSlide>
+          <SwiperSlide key={index}>
+            {item}
+          </SwiperSlide>
         ))}
+        <LeftButton />
+        <RightButton />
       </Swiper>
     </div>
   );
