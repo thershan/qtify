@@ -5,7 +5,7 @@ import SwiperCore, { Virtual, Navigation, Pagination } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import "./carousel.css";
+import "./Carousel.css";
 import Card from "./CardComponent";
 
 const Carousel = ({ data, carouselKey }) => {
