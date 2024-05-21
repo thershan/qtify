@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardComponent from './CardComponent';
-import Carousel from './Carousel'; // Ensure this matches the renamed file
+import Carousel from './Carousal'; // Ensure this matches the filename
 import './Section.css';
 
 function Section({ title, apiEndpoint }) {
@@ -23,7 +23,7 @@ function Section({ title, apiEndpoint }) {
         </button>
       </div>
       {showCarousel ? (
-        <Carousel data={albums} renderCardComponent={(album) => <CardComponent key={album.id} album={album} />} />
+        <Carousel data={albums} carouselKey={title} renderCardComponent={(album) => <CardComponent key={album.id} album={album} />} />
       ) : (
         <div className="grid">
           {albums.map(album => (
