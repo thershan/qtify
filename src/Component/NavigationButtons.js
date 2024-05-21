@@ -1,17 +1,9 @@
 import React from 'react';
 
-export function LeftButton() {
-  return (
-    <button className="left-button">
-      <svg>...</svg> {/* SVG code from Figma */}
-    </button>
-  );
-}
+export const LeftButton = () => (
+  <div className="swiper-button-prev">‹</div>
+);
 
-export function RightButton() {
-  return (
-    <button className="right-button">
-      <svg>...</svg> {/* SVG code from Figma */}
-    </button>
-  );
-}
+export const RightButton = () => (
+  <div className="swiper-button-next">›</div>
+);

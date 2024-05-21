@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardComponent from './CardComponent';
-import Carousel from './Carousel';
+import Carousel from './Carousel'; // Ensure this matches the renamed file
 import './Section.css';
 
 function Section({ title, apiEndpoint }) {
@@ -10,12 +10,8 @@ function Section({ title, apiEndpoint }) {
 
   useEffect(() => {
     axios.get(apiEndpoint)
-      .then(response => {
-        setAlbums(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching albums:', error);
-      });
+      .then(response => setAlbums(response.data))
+      .catch(error => console.error('Error fetching albums:', error));
   }, [apiEndpoint]);
 
   return (
@@ -23,11 +19,11 @@ function Section({ title, apiEndpoint }) {
       <div className="section-header">
         <h2>{title}</h2>
         <button onClick={() => setShowCarousel(!showCarousel)}>
-          {showCarousel ? 'Show All' : 'Collapse'}
+          {showCarousel ? 'Collapse' : 'Show All'}
         </button>
       </div>
       {showCarousel ? (
-        <Carousel items={albums.map(album => <CardComponent key={album.id} album={album} />)} />
+        <Carousel data={albums} renderCardComponent={(album) => <CardComponent key={album.id} album={album} />} />
       ) : (
         <div className="grid">
           {albums.map(album => (
