@@ -1,17 +1,10 @@
-.swiper{
-  color: white;
-  width: 95vw;
- height: 300px;
+.swiper {
+  width: 100%;
+  height: auto;
 }
 
-.swiper-button-next {
-  background-color: white;
-  width: 40px;
-  border-radius: 50%;
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-position: center;
-}
-.swiper-button-next::after {
-  display: none;
+.card-image {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
 }

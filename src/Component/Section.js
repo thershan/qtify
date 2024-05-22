@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CardComponent from './CardComponent';
-import Carousel from './Carousel'; // Ensure this path is correct
+import Carousel from './Carousel';
 import './Section.css';
 
 function Section({ title, apiEndpoint }) {
@@ -16,16 +16,18 @@ function Section({ title, apiEndpoint }) {
 
   return (
     <div className="section">
-      <div className="section-header">
+      <div className="header">
         <h2>{title}</h2>
-        <button onClick={() => setShowCarousel(!showCarousel)}>
+        <button className="toggleText" onClick={() => setShowCarousel(!showCarousel)}>
           {showCarousel ? 'Collapse' : 'Show All'}
         </button>
       </div>
-      {showCarousel ? (
-        <Carousel data={albums} carouselKey={title} />
+      {albums.length === 0 ? (
+        <div className="loading">Loading...</div>
+      ) : showCarousel ? (
+        <Carousel data={albums} renderCardComponent={(album) => <CardComponent key={album.id} album={album} />} carouselKey={title} />
       ) : (
-        <div className="grid">
+        <div className="grid cardWrapper">
           {albums.map(album => (
             <CardComponent key={album.id} album={album} />
           ))}
