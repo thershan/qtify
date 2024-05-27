@@ -3,7 +3,7 @@ import { Chip } from '@mui/material';
 import './CardComponent.css';
 
 function CardComponent({ album }) {
-  if (!album || !album.image || !album.title || !album.follows) {
+  if (!album || !album.image || !album.title) {
     return null;
   }
 
@@ -11,7 +11,11 @@ function CardComponent({ album }) {
     <div className="card">
       <img src={album.image} alt={album.title} className="card-image" />
       <div className="card-content">
-        <Chip label={`${album.follows} follows`} className="card-chip" />
+        {album.follows !== undefined ? (
+          <Chip label={`${album.follows} follows`} className="card-chip" />
+        ) : (
+          <Chip label={`${album.likes} likes`} className="card-chip" />
+        )}
         <h3 className="card-title">{album.title}</h3>
       </div>
     </div>

@@ -1,10 +1,27 @@
-.swiper {
-  width: 100%;
-  height: auto;
+.relative {
+  position: relative;
 }
 
-.card-image {
-  max-width: 100%;
-  height: auto;
-  object-fit: cover;
+.arrow-right,
+.arrow-left {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.arrow-left {
+  left: 10px;
 }

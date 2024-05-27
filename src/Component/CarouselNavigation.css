@@ -1,0 +1,23 @@
+.carousel-left-navigation, .carousel-right-navigation {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+  }
+  
+  .carousel-left-navigation {
+    left: 10px;
+  }
+  
+  .carousel-right-navigation {
+    right: 10px;
+  }
+  

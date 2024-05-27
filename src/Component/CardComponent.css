@@ -1,42 +1,41 @@
 .card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #ffffff; /* White background for the cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .card-content {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-  }
-  
-  .card-chip {
-    margin-bottom: 8px;
-    background-color: black;
-    color: white;
-    font-size: 0.875rem; /* Adjust font size */
-  }
-  
-  .card-title {
-    margin: 0;
-    font-size: 1rem;
-    font-weight: normal;
-    color: black;
-  }
-  
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+}
+
+.card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.card-chip {
+  margin-bottom: 8px;
+  background-color: black;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  color: black;
+}

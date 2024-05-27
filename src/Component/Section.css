@@ -1,38 +1,20 @@
-.section {
-  margin: 20px;
-}
-
-.section-header {
+.header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  padding: 0 10px;
-  color: #fff;
+  align-items: baseline;
 }
 
-.section-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
+.cardWrapper {
+  margin-top: 18px;
 }
 
-.section-header button {
-  padding: 8px 16px;
-  background-color: #ff4081;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+.wrapper {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.toggleText {
+  color: var(--color-primary);
   cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.section-header button:hover {
-  background-color: #e0356a;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 0 10px;
 }
