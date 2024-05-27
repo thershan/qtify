@@ -1,20 +1,10 @@
-.header {
+/* src/Component/Section.css */
+.cardWrapper.gridView {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.cardWrapper {
-  margin-top: 18px;
-}
-
-.wrapper {
-  display: flex;
-  gap: 40px;
   flex-wrap: wrap;
+  gap: 16px;
 }
 
-.toggleText {
-  color: var(--color-primary);
-  cursor: pointer;
+.cardWrapper.gridView .swiper-wrapper {
+  display: none;
 }
