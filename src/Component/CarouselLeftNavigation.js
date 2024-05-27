@@ -1,5 +1,5 @@
-// src/Component/CarouselLeftNavigation.js
 import React from 'react';
+import './CarouselNavigation.css';
 
 const CarouselLeftNavigation = () => (
   <button className="arrow-left">

@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
 import './Carousel.css';
 import CarouselLeft from './CarouselLeftNavigation';
 import CarouselRight from './CarouselRightNavigation';
-import { Navigation } from 'swiper/modules';
 
 const Controls = ({ data, swiperRef }) => {
+  const swiper = useSwiper();
+
   useEffect(() => {
     if (swiperRef.current) {
       swiperRef.current.slideTo(0);
@@ -43,6 +45,7 @@ const Carousel = ({ data, renderCardComponent }) => {
         }}
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
+          console.log('Swiper initialized:', swiper);
         }}
       >
         <Controls data={data} swiperRef={swiperRef} />
