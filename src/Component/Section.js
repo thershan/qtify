@@ -1,24 +1,24 @@
-// src/Component/Section.js
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import './Section.css';
+import { Box, Tabs, Tab, CircularProgress } from '@mui/material';
 import CardComponent from './CardComponent';
 import Carousel from './Carousel';
-import './Section.css';
-import { Tabs, Tab, CircularProgress } from '@mui/material';
 
-function Section({ title, apiEndpoint, isSongsSection }) {
+export default function Section({ title, apiEndpoint, isSongsSection, type }) {
   const [data, setData] = useState([]);
   const [genres, setGenres] = useState([]);
   const [activeTab, setActiveTab] = useState('all');
-  const [showCarousel, setShowCarousel] = useState(true);
+  const [filterData, setFilterData] = useState([]);
+  const [carouselToggle, setCarouselToggle] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log('Fetching data from:', apiEndpoint);
-        const response = await axios.get(apiEndpoint);
-        console.log('Data received:', response.data);
-        setData(response.data);
+        const response = await fetch(apiEndpoint);
+        const result = await response.json();
+        setData(result);
+        setFilterData(result);
+        console.log(`Data fetched for ${title}:`, result); // Debugging log
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -29,10 +29,19 @@ function Section({ title, apiEndpoint, isSongsSection }) {
     if (isSongsSection) {
       const fetchGenres = async () => {
         try {
-          console.log('Fetching genres');
-          const response = await axios.get('https://qtify-backend-labs.crio.do/genres');
-          console.log('Genres received:', response.data);
-          setGenres(['all', ...response.data]);
+          const response = await fetch('https://qtify-backend-labs.crio.do/genres');
+          const result = await response.json();
+          console.log('Detailed Genres API response:', JSON.stringify(result, null, 2)); // Debugging log
+          
+          // Inspect the structure of the result
+          console.log('Genres API response structure:', result);
+          
+          // Correctly access the genres array within result.data
+          if (result.data && Array.isArray(result.data)) {
+            setGenres([{ key: 'all', label: 'All' }, ...result.data]);
+          } else {
+            console.error('Genres response is not an array:', result);
+          }
         } catch (error) {
           console.error('Error fetching genres:', error);
         }
@@ -40,45 +49,67 @@ function Section({ title, apiEndpoint, isSongsSection }) {
 
       fetchGenres();
     }
-  }, [apiEndpoint, isSongsSection]);
+  }, [apiEndpoint, isSongsSection, title]);
 
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue);
+    if (newValue === 'all') {
+      setFilterData(data);
+    } else {
+      setFilterData(data.filter(item => item.genre === newValue));
+    }
   };
 
-  const filteredData = activeTab === 'all' ? data : data.filter(item => item.genre === activeTab);
+  const handleToggle = () => {
+    setCarouselToggle(!carouselToggle);
+    console.log('Toggle state:', !carouselToggle); // Debugging log
+  };
 
   return (
-    <div className="section">
+    <div>
       <div className="header">
-        <h2>{title}</h2>
-        {!isSongsSection && (
-          <button onClick={() => setShowCarousel(!showCarousel)}>
-            {showCarousel ? 'Show All' : 'Collapse'}
-          </button>
+        <h3 style={{ fontSize: "20px" }}>{title}</h3>
+        {isSongsSection ? null : (
+          <h4 className="toggleText" onClick={handleToggle}>
+            {carouselToggle ? "Show All" : "Collapse All"}
+          </h4>
         )}
       </div>
+
       {isSongsSection && (
         <Tabs value={activeTab} onChange={handleTabChange}>
-          <Tab label="All" value="all" />
           {genres.map((genre) => (
-            <Tab key={genre} label={genre} value={genre} />
+            <Tab key={genre.key} label={genre.label} value={genre.key} />
           ))}
         </Tabs>
       )}
-      {data.length === 0 ? (
-        <CircularProgress />
+
+      {!data?.length ? (
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CircularProgress />
+        </Box>
       ) : (
-        <div className={`cardWrapper ${showCarousel ? '' : 'gridView'}`}>
-          <Carousel
-            data={filteredData}
-            carouselKey={title}
-            renderCardComponent={(data) => <CardComponent album={data} />}
-          />
+        <div className="cardWrapper">
+          {!carouselToggle && !isSongsSection ? (
+            <div className="wrapper">
+              {data.map((item) => (
+                <CardComponent key={item.id} data={item} type={type} />
+              ))}
+            </div>
+          ) : (
+            <Carousel
+              data={filterData}
+              renderCardComponent={(ele) => <CardComponent data={ele} type={type} />}
+            />
+          )}
         </div>
       )}
     </div>
   );
 }
-
-export default Section;

@@ -25,6 +25,13 @@ const SongsTabs = () => {
 
   const filteredSongs = selectedGenre === 'All' ? songs : songs.filter(song => song.genre === selectedGenre);
 
+  const renderCardComponent = (item) => (
+    <div>
+      <img src={item.imageUrl} alt={item.title} />
+      <p>{item.title}</p>
+    </div>
+  );
+
   return (
     <div>
       <Tabs value={selectedGenre} onChange={handleTabChange}>
@@ -32,7 +39,7 @@ const SongsTabs = () => {
           <Tab label={genre} value={genre} key={index} />
         ))}
       </Tabs>
-      <Carousel data={filteredSongs} carouselKey="songs" />
+      <Carousel data={filteredSongs} renderCardComponent={renderCardComponent} />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+// src/components/Carousel.js
 import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
@@ -53,7 +54,7 @@ const Carousel = ({ data, renderCardComponent }) => {
         modules={[Navigation]}
         breakpoints={sliderSettings}
         slidesPerView={7}
-        slidesPerGroup={7} // Ensure the group setting here matches the largest value
+        slidesPerGroup={7}
         spaceBetween={20}
         navigation={{
           nextEl: '.arrow-right',

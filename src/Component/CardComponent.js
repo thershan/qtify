@@ -1,25 +1,58 @@
 import React from 'react';
-import { Chip } from '@mui/material';
+import { Chip, Tooltip } from '@mui/material';
 import './CardComponent.css';
 
-function CardComponent({ album }) {
-  if (!album || !album.image || !album.title) {
-    return null;
-  }
+export default function Card({ data, type }) {
+  const getCard = (type) => {
+    switch (type) {
+      case "album": {
+        const { image, follows, title, songs } = data;
 
-  return (
-    <div className="card">
-      <img src={album.image} alt={album.title} className="card-image" />
-      <div className="card-content">
-        {album.follows !== undefined ? (
-          <Chip label={`${album.follows} follows`} className="card-chip" />
-        ) : (
-          <Chip label={`${album.likes} likes`} className="card-chip" />
-        )}
-        <h3 className="card-title">{album.title}</h3>
-      </div>
-    </div>
-  );
+        return (
+          <Tooltip title={`${songs?.length} Songs`} placement="top" arrow>
+            <div className="wrapper">
+              <div className="card">
+                <img src={image} alt="album" />
+                <div className="banner">
+                  <Chip
+                    className="chip"
+                    label={`${follows} Follows`}
+                    size="small"
+                  />
+                </div>
+              </div>
+              <div className="titleWrapper">
+                <p>{title}</p>
+              </div>
+            </div>
+          </Tooltip>
+        );
+      }
+      case "songs": {
+        const { image, likes, title } = data;
+
+        return (
+          <div className="wrapper">
+            <div className="card">
+              <img src={image} alt="song" />
+              <div className="banner">
+                <Chip
+                  className="chip"
+                  label={`${likes} Likes`}
+                  size="small"
+                />
+              </div>
+            </div>
+            <div className="titleWrapper">
+              <p>{title}</p>
+            </div>
+          </div>
+        );
+      }
+
+      default:
+        return <></>;
+    }
+  };
+  return getCard(type);
 }
-
-export default CardComponent;

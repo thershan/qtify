@@ -1,10 +1,91 @@
-/* src/Component/Section.css */
-.cardWrapper.gridView {
+/* Section.css */
+
+/* Header styles */
+.header {
   display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-inline: 31px;
+  color: white; /* Ensure text is visible on dark backgrounds */
 }
 
-.cardWrapper.gridView .swiper-wrapper {
-  display: none;
+/* Toggle text styles */
+.toggleText {
+  cursor: pointer;
+  color: var(--color-primary);
+  font-size: 20px;
+}
+
+/* Wrapper for cards in grid view */
+.wrapper {
+  margin-left: 31px;
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Wrapper for the card container */
+.cardWrapper {
+  margin-top: 18px;
+}
+
+/* Cards container when using carousel */
+.cardsWrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+/* Individual card styles */
+.card {
+  width: 200px;
+  height: 250px;
+  background-color: #fff; /* Ensure cards have a visible background */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Image inside the card */
+.card img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* Card content */
+.card div {
+  padding: 10px;
+}
+
+/* Tabs styles */
+.MuiTabs-root {
+  margin-left: 31px;
+}
+
+/* Ensure Swiper navigation buttons are visible */
+.arrow-right, .arrow-left {
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure carousel container is not hidden */
+.relative {
+  overflow: visible;
+  padding: 20px 0;
 }

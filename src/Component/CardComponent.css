@@ -1,41 +1,30 @@
+/* CardComponent.css */
 .card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  width: 200px; /* Adjust as necessary */
+  margin: 10px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: #ffffff;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-}
-
-.card:hover {
-  transform: scale(1.05);
 }
 
 .card-image {
   width: 100%;
-  height: auto;
+  height: 150px; /* Adjust as necessary */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .card-content {
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-.card-chip {
-  margin-bottom: 8px;
-  background-color: black;
-  color: white;
-  font-size: 0.875rem;
+  padding: 10px;
 }
 
 .card-title {
+  font-size: 1.2em;
   margin: 0;
-  font-size: 1rem;
-  font-weight: normal;
-  color: black;
+}
+
+.card-follows {
+  font-size: 0.9em;
+  color: #555;
 }
