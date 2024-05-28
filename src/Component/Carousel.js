@@ -1,4 +1,3 @@
-// src/components/Carousel.js
 import React, { useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
