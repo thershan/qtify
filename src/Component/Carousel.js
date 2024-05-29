@@ -22,13 +22,13 @@ const Carousel = ({ data, renderCardComponent }) => {
   const swiperRef = useRef(null);
 
   const sliderSettings = {
-    240: { slidesPerView: 2, slidesPerGroup: 2 },
-    376: { slidesPerView: 2.25, spaceBetween: 10, slidesPerGroup: 2 },
-    440: { slidesPerView: 3, slidesPerGroup: 3 },
-    680: { slidesPerView: 3, slidesPerGroup: 3 },
-    767: { slidesPerView: 4.5, slidesPerGroup: 4 },
-    1025: { slidesPerView: 6, slidesPerGroup: 6 },
-    1200: { slidesPerView: 7, slidesPerGroup: 7 },
+    240: { slidesPerView: 2, slidesPerGroup: 1 },
+    376: { slidesPerView: 2.25, spaceBetween: 10, slidesPerGroup: 1 },
+    440: { slidesPerView: 3, slidesPerGroup: 1 },
+    680: { slidesPerView: 3, slidesPerGroup: 1 },
+    767: { slidesPerView: 4.5, slidesPerGroup: 1 },
+    1025: { slidesPerView: 6, slidesPerGroup: 1 },
+    1200: { slidesPerView: 7, slidesPerGroup: 1 },
   };
 
   useEffect(() => {
@@ -53,7 +53,7 @@ const Carousel = ({ data, renderCardComponent }) => {
         modules={[Navigation]}
         breakpoints={sliderSettings}
         slidesPerView={7}
-        slidesPerGroup={7}
+        slidesPerGroup={1}
         spaceBetween={20}
         navigation={{
           nextEl: '.arrow-right',
